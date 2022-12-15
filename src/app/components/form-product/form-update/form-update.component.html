@@ -1,0 +1,100 @@
+
+  <div class="formProduct">
+
+    <form [formGroup]="contactForm" >
+    <div class="field">
+      <label for="id"  class="label"   ngValue="productPrice"> id</label>
+      <div class="control">
+        <input  type="text"  #inputId name="id" id="name" class="input" formControlName="id" type="number" placeholder="Text input" />
+        <div *ngIf="contactForm.get('id')?.touched && contactForm.get('id')?.errors?.['required'] "  class="alert alert-danger"> Required Field</div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="name" class="label">Name</label>
+      <div class="control">
+        <input #inputName class="input" id="name" name="name" required formControlName="name" type="text" placeholder="Text input" />
+
+        <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['required'] "  class="alert alert-danger"> required field</div>
+        <div *ngIf="contactForm.get('name')?.touched &&contactForm.get('name')?.errors?.['minlength'] " class="alert alert-danger">min length should be longer than {{contactForm.get('name')?.errors?.['minlength'].requiredLength  }}  </div>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">price</label>
+      <div class="control">
+        <input
+
+        id="price"
+        name="price"
+        required
+        formControlName="price"
+     #inputPrice
+          id="image"
+          class="input"
+          type="number"
+          placeholder="Text input"
+        />
+
+        <div *ngIf="contactForm.get('price')?.touched && contactForm.get('price')?.errors?.['required'] "  class="alert alert-danger"> Required Field</div>
+
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">image</label>
+      <div class="control">
+        <input required   #inputImage name="image" id="image" formControlName="image" class="input" type="text" placeholder="Text input" />
+        <div *ngIf="contactForm.get('image')?.touched && contactForm.get('image')?.errors?.['required'] "  class="alert alert-danger"> Required Field</div>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">description</label>
+      <div class="control">
+        <input
+
+          #inputDescription
+          class="input"
+          type="text"
+          placeholder="Text input"
+          name="description"
+          formControlName="description"
+          id="description"
+        />
+
+        <div *ngIf="contactForm.get('description')?.touched && contactForm.get('description')?.errors?.['required'] "  class="alert alert-danger"> Required Field</div>
+        <div *ngIf="contactForm.get('description')?.touched &&contactForm.get('description')?.errors?.['minlength'] " class="alert alert-danger">min length should be longer than {{contactForm.get('description')?.errors?.['minlength'].requiredLength  }}  </div>
+      </div>
+
+
+
+
+    </div>
+
+
+    <div class="mb-4">
+
+      <label  class="form-label"> Category</label>
+      <select  aria-label="Default select example"  name="productCategory"  class="form-select"   formControlName="productCategory" >
+        <option selected>Open this select menu</option>
+          <option *ngFor=" let category of categories" [value]="category.id" > {{category.category}} </option>
+
+
+      </select>
+
+
+        </div>
+
+
+
+  </form>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button  [disabled]="contactForm.invalid"  class=" btn btn-success " (click)="updateProduct()"  >Update Product</button>
+
+      </div>
+      <div class="control">
+        <button   class="button is-link is-light" routerLink="/app-products">Cancel</button>
+      </div>
+    </div>
+
+
+  </div>

@@ -1,0 +1,27 @@
+<p-orderList [value]="productStore" [listStyle]="{'max-height':'30rem'}" header="List of Products" filterBy="name" filterPlaceholder="Filter by name" [dragdrop]="true">
+  <ng-template let-product pTemplate="item">
+      <div class="product-item">
+          <div class="image-container">
+            <app-img img="{{product.image}}"  >
+
+            </app-img>
+          </div>
+          <div class="product-list-detail">
+              <h5 class="mb-2">{{product.name}}</h5>
+              <i class="pi pi-tag product-category-icon"></i>
+              <span class="product-category">{{product.description }}</span>
+              <h6 style="margin-top:2px" class="mb-2">${{product.price}}</h6>
+              <h6 style="margin-top:2px" class="mb-2">{{product.productCategory.category}}</h6>
+
+
+          </div>
+          <div class="product-list-action">
+
+              <button class="btn btn-danger pi pi-trash"(click)="deleteProduct(product.id)" >delete</button>
+              <button style="margin-top:8px;width:80px;" class="pi pi-pencil   btn btn-success" [routerLink]="['/app-form-update/',product.id]"  >edit</button>
+          </div>
+      </div>
+  </ng-template>
+</p-orderList>
+
+

@@ -3,13 +3,6 @@
 
     <form [formGroup]="contactForm" >
     <div class="field">
-      <label for="id"  class="label"   ngValue="productPrice"> id</label>
-      <div class="control">
-        <input  type="text"  #inputId name="id" id="name" class="input" formControlName="id" type="number" placeholder="Text input" />
-        <div *ngIf="contactForm.get('id')?.touched && contactForm.get('id')?.errors?.['required'] "  class="alert alert-danger"> Required Field</div>
-      </div>
-    </div>
-    <div class="field">
       <label for="name" class="label">Name</label>
       <div class="control">
         <input #inputName class="input" id="name" name="name" required formControlName="name" type="text" placeholder="Text input" />

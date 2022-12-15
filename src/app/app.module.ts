@@ -32,6 +32,7 @@ import { ProductServicesService } from './services/product-services.service';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { FormUpdateComponent } from './components/form-product/form-update/form-update.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     HomeComponent,
     UsersComponent,
     FormUpdateComponent,
+    NotFoundComponent,
 
 
   ],

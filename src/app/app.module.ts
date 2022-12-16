@@ -30,9 +30,10 @@ import { CardModule, } from 'primeng/card';
 import { UsersComponent } from './components/users/users.component';
 import { ProductServicesService } from './services/product-services.service';
 import { FormProductComponent } from './components/form-product/form-product.component';
-import { FormUpdateComponent } from './components/form-product/form-update/form-update.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { FormUpdateComponent } from './components/form-update/form-update.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,10 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   OrderListModule,
   SweetAlert2Module.forChild()
   ],
-  providers: [ProductServicesService,SweetAlert2Module],
+  providers: [ProductServicesService,SweetAlert2Module,
+    {provide:LocationStrategy,useClass:HashLocationStrategy }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

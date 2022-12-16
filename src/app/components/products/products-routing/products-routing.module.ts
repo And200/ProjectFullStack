@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { FormUpdateComponent } from '../../form-product/form-update/form-update.component';
-
 import { ProductsComponent } from '../products.component';
 
 

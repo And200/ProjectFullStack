@@ -32,8 +32,9 @@ import { ProductServicesService } from './services/product-services.service';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { FormUpdateComponent } from './components/form-update/form-update.component';
+import { FormUpdateComponent } from './components/form-product/form-update/form-update.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -73,10 +74,13 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
   FormsModule,
   HttpClientModule,
   OrderListModule,
-  SweetAlert2Module.forChild()
+  SweetAlert2Module.forChild(),
+
   ],
-  providers: [ProductServicesService,SweetAlert2Module,
+  providers: [ProductServicesService,SweetAlert2Module
+    /*,
     {provide:LocationStrategy,useClass:HashLocationStrategy }
+    */
   ],
 
   bootstrap: [AppComponent]

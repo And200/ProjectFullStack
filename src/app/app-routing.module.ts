@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormProductComponent } from './components/form-product/form-product.component';
-import { FormUpdateComponent } from './components/form-update/form-update.component';
+import { FormUpdateComponent } from './components/form-product/form-update/form-update.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
 import { UsersComponent } from './components/users/users.component';
@@ -43,7 +43,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes, { useHash: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

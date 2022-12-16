@@ -73,6 +73,7 @@ updateProduct(){
 
   initForm(): FormGroup {
     return this.fb.group({
+      id:['',[Validators.required]],
       name:['',[Validators.required,Validators.minLength(3)]],
       price:['',[Validators.required]],
       image:['',[Validators.required]],

@@ -19,7 +19,7 @@ export class ImgComponent implements OnInit,OnChanges,AfterViewInit,OnDestroy{
   }
 @Input() alt:string='';
 @Output() loaded= new  EventEmitter<string>();
-imageDefault ='/assets/descarga.jpg';
+imageDefault ='/assets/descarga.png';
 
 /*
 count=0;

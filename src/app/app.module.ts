@@ -35,7 +35,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FormUpdateComponent } from './components/form-product/form-update/form-update.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {RouterModule} from "@angular/router";
-
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { ImgCartComponent } from './components/img/img-cart/img-cart.component';
 @NgModule({
   declarations: [
 
@@ -45,7 +46,6 @@ import {RouterModule} from "@angular/router";
     UsersComponent,
     FormUpdateComponent,
     NotFoundComponent,
-
 
   ],
   imports: [

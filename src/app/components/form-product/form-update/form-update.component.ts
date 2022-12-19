@@ -2,6 +2,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 import { Category } from 'src/app/models/category.model';
 
 import { Product } from 'src/app/models/product.model';
@@ -24,23 +25,25 @@ export class FormUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.contactForm=this.initForm();
 
-          this.activate.params.subscribe(params=>{
-            let id =params['id']
-            if(id){
-              this.productService.getProductById(id).subscribe((product: Product)=>{
-                this.product=product;
-                this.contactForm.patchValue({
-                  id:this.product.id,
-                  name: this.product.name,
-                  price:this.product.price,
-                  description:this.product.description,
-                  image:this.product.image,
-                  productCategory:this.product.productCategory.id
-                })
-              });
-
-            }
-          })
+          this.activate.params.pipe(
+            switchMap(params =>{
+              let id =params['id']
+              if(id){
+                return this.productService.getProductById(id)
+              }
+              return [];
+            })
+          ).subscribe((product: Product)=>{
+            this.product=product;
+            this.contactForm.patchValue({
+              id:this.product.id,
+              name: this.product.name,
+              price:this.product.price,
+              description:this.product.description,
+              image:this.product.image,
+              productCategory:this.product.productCategory.id
+            })
+          });
 
           this.productService.getCategories().subscribe((categories)=>{
             this.categories=categories;

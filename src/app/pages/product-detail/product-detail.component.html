@@ -1,0 +1,25 @@
+<div class="page-product">
+
+  <div class="detail" *ngIf="product" >
+    <div class="gallery">
+      <swiper [slidesPerView]="1">
+        <ng-template swiperSlide   >
+         <app-img-cart [img]="product.image" ></app-img-cart>
+        </ng-template>
+      </swiper>
+    </div>
+      <div>
+
+        <h1>{{product.name }}  </h1>
+        <h2>Precio {{product.price|currency }}  </h2>
+        <h2> {{product.productCategory.category}} </h2>
+        <p>{{product.description}} </p>
+
+      </div>
+
+      <button  (click)="goToBack()" type="button " class="btn btn-secondary btn-lg active">BACK TO PRODUCTS</button>
+      <button type="button " class="pi pi-shopping-cart  btn btn-success btn-lg "> ADD TO SHOPPING CART </button>
+  </div>
+
+
+</div>

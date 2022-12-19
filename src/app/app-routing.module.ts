@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
 import { UsersComponent } from './components/users/users.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   {
     path:'app-form-update/:id',component:FormUpdateComponent
   },
-
+  {
+    path:'app-product-detail/:id',component:ProductDetailComponent
+  },
 
   {
     path:'app-product-category',component:ProductCategoryComponent

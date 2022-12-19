@@ -59,7 +59,6 @@ updateProduct(product:Product):Observable<void>{
     getTotal(products: Product[]): number {
     const total=  products.reduce((sum,product) => sum+product.price,0);
     return total;
-
     }
 
     deleteProduct(id:number):Observable<void>{

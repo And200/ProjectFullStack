@@ -19,7 +19,9 @@
 
               <button class="btn btn-danger pi pi-trash"(click)="deleteProduct(product.id)" >delete</button>
               <button style="margin-top:8px;width:80px;" class="pi pi-pencil   btn btn-success" [routerLink]="['/app-form-update/',product.id]"  >edit</button>
-          </div>
+              <button style="margin-top:8px;width:80px;" class="pi pi-pencil   btn btn-secondary" [routerLink]="['/app-product-detail/',product.id]"  >detail</button>
+
+            </div>
       </div>
   </ng-template>
 </p-orderList>

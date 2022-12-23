@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { FormUpdateComponent } from './components/form-product/form-update/form-update.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
-import { UsersComponent } from './components/users/users.component';
+import { DialogComponent } from './dialog/dialog.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-
+import { CustomPreloadService } from './services/custom-preload.service';
+import{QuicklinkStrategy} from 'ngx-quicklink'
 
 const routes: Routes = [
   {
-      path:'' ,redirectTo:'/home',pathMatch: 'full'
+      path:'' ,redirectTo:'/home',pathMatch: 'full',data: {
+        preload: true
+      }
   },
 
 
@@ -19,25 +22,36 @@ const routes: Routes = [
     path:'app-form-product',component:FormProductComponent
   },
   {
-    path:'app-form-update/:id',component:FormUpdateComponent
+    path:'app-form-update/:id',component:FormUpdateComponent,data:{
+      preload:true
+    }
   },
   {
-    path:'app-product-detail/:id',component:ProductDetailComponent
-  },
-
-  {
-    path:'app-product-category',component:ProductCategoryComponent
-  },
-
-  {
-    path:'app-products',loadChildren:()=>import('./components/products/products-routing/products.module').then(m=>m.ProductsModule)
+    path:'app-product-detail/:id',component:ProductDetailComponent,data:{
+      preload:true
+    }
   },
 
   {
-    path:'app-users',component:UsersComponent
+    path:'app-product-category',component:ProductCategoryComponent,data:{
+      preload:true
+    }
+  },
+
+  {
+    path:'app-products',loadChildren:()=>import('./components/products/products-routing/products.module').then(m=>m.ProductsModule),data:{
+      preload:true
+    }
+  },
+
+
+  {
+    path:'home',component:HomeComponent,data:{
+      preload:true
+    }
   },
   {
-    path:'home',component:HomeComponent
+    path:'cms',loadChildren:()=> import('./cms/cms.module').then(m=>m.CmsModule)
   },
   {
     path:'**', component:NotFoundComponent
@@ -46,7 +60,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, { useHash: false})],
+  imports: [ RouterModule.forRoot(routes,{
+    preloadingStrategy:QuicklinkStrategy})],
+
+    /*  Use Preload  Technique Just You Can't too many modules  */
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

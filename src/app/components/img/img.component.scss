@@ -1,4 +1,15 @@
 img{
-  width: 190px;
+  width: 120px;
   margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.50);
+  cursor:pointer;
+  transition: all  400ms ease;
+}
+
+img:hover{
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.733);
+  transform: translateY(-3%)
 }

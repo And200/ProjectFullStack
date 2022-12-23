@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit,EventEmitter,Output ,Input, ChangeDetectionStrategy} from '@angular/core';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { Category } from 'src/app/models/category.model';
 
 import { Product } from 'src/app/models/product.model';
@@ -21,19 +23,38 @@ export class ProductComponent implements OnInit {
   criter:string='';
   quantity!:number;
   classStyle='button is-info';
+  id!:string |null;
+
 
   @Output()deleteProductEvent= new  EventEmitter<number>();
 
-  constructor(private readonly router:Router ,  private readonly productService:ProductServicesService,private readonly http:HttpClient
+  constructor(private route:ActivatedRoute,private dialog: MatDialog,private readonly router:Router ,  private readonly productService:ProductServicesService,private readonly http:HttpClient
     ) {
 
   }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this.route.queryParamMap.subscribe(queryParams => {
+      this.id =queryParams.get('product');
+      console.log(this.id)
+    })
+
+    if(this.id){
+      this.openDialog();
+      if(this.dialog.afterAllClosed){
+        this.dialog.closeAll()
+      }
+    }
   }
 
 
+
+  openDialog() {
+    this.dialog.open(DialogComponent,{
+    });
+
+  }
 
     deleteProduct(id:number){
       this.deleteProductEvent.emit(id);

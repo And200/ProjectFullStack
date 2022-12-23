@@ -2,7 +2,7 @@
   <ng-template let-product pTemplate="item">
       <div class="product-item">
           <div class="image-container">
-            <app-img img="{{product.image}}"  >
+            <app-img appAnimationSize [routerLink]="['/app-product-detail/',product.id]" img="{{product.image}}"  >
 
             </app-img>
           </div>
@@ -19,7 +19,9 @@
 
               <button class="btn btn-danger pi pi-trash"(click)="deleteProduct(product.id)" >delete</button>
               <button style="margin-top:8px;width:80px;" class="pi pi-pencil   btn btn-success" [routerLink]="['/app-form-update/',product.id]"  >edit</button>
-              <button style="margin-top:8px;width:80px;" class="pi pi-pencil   btn btn-secondary" [routerLink]="['/app-product-detail/',product.id]"  >detail</button>
+             <!--  Add /app-products to router if you don't want the query params depends of some route-->
+              <button style="margin-top:8px;width:80px;" class="pi pi-pencil   btn btn-secondary" routerLink='/app-products' [queryParams]="{product:product.id}"  (click)="openDialog()"   >view</button>
+
 
             </div>
       </div>

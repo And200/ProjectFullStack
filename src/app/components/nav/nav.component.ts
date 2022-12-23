@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.sass'],
+  styleUrls: ['./nav.component.scss'],
   changeDetection:  ChangeDetectionStrategy.OnPush
 })
 export class NavComponent  implements OnInit {
@@ -19,9 +19,7 @@ export class NavComponent  implements OnInit {
     goToProducts() {
         this.router.navigate(['app-products'])
       }
-      goToUsers() {
-        this.router.navigate(['app-users'])
-      }
+
 
       goToFormProduct(): void {
         this.router.navigate(['app-form-product'])

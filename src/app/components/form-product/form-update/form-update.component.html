@@ -1,7 +1,14 @@
-
+<app-nav></app-nav>
   <div class="formProduct">
 
     <form [formGroup]="contactForm" >
+      <div class="field">
+        <label for="name" class="label">Id</label>
+        <div class="control">
+          <input #inputName class="input" id="id" name="id" required formControlName="id" [readOnly]="true" type="text" placeholder="Text input" />
+
+         </div>
+        </div>
     <div class="field">
       <label for="name" class="label">Name</label>
       <div class="control">

@@ -8,16 +8,16 @@
         </ng-template>
       </swiper>
     </div>
-      <div>
+      <div appHighlight>
 
-        <h1>{{product.name }}  </h1>
-        <h2>Precio {{product.price|currency }}  </h2>
-        <h2> {{product.productCategory.category}} </h2>
-        <p>{{product.description}} </p>
+        <h1 class="productDetail" >{{product.name }}  </h1>
+        <h2 class="productDetail"  >Precio {{product.price|currency }}  </h2>
+        <h2 class="productDetail" > {{product.productCategory.category}} </h2>
+        <p class="productDetail" >{{product.description}} </p>
 
       </div>
 
-      <button  (click)="goToBack()" type="button " class="btn btn-secondary btn-lg active">BACK TO PRODUCTS</button>
+      <button  (click)="goToBack()" type="button " class="pi pi-chevron-circle-left  btn btn-secondary btn-lg active"> BACK TO PRODUCTS</button>
       <button type="button " class="pi pi-shopping-cart  btn btn-success btn-lg "> ADD TO SHOPPING CART </button>
   </div>
 

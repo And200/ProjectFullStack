@@ -18,6 +18,7 @@ export class ProductDetailComponent implements OnInit {
   constructor( private location:Location, private activate:ActivatedRoute,private productService: ProductServicesService) { }
 
   ngOnInit(): void {
+
     this.activate.params.pipe(
       switchMap(params =>{
         let id =params['id']

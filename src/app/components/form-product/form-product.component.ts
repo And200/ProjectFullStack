@@ -42,7 +42,7 @@ categories:Category[]=[];
   onCreateProduct() {
 
       this.product = this.contactForm.value;
-      this.product.productCategory={id:this.contactForm.value.productCategory};
+      this.product.categoryId=this.contactForm.value.productCategory;
 
       console.log(this.product);
       this.productService.createProduct(this.product).subscribe(

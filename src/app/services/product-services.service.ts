@@ -49,7 +49,7 @@ updateProduct(product:Product):Observable<void>{
     price:product.price,
     description:product.description,
     image:product.image,
-    productCategory:product.productCategory
+    categoryId:product.categoryId
 
   }
     return this.Http.put<void>(`${this.resourceUrl}products/${product.id}`,productBody)

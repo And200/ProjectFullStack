@@ -1,4 +1,3 @@
-import { Category } from "./category.model";
 
 export class Product{
 
@@ -8,7 +7,8 @@ export class Product{
   price : number=0;
   description: string='';
   image:string=''
-  productCategory!:Category;
+  categoryId ?: number=0;
+  category ?: string='';
 
 }
 

@@ -41,7 +41,7 @@ export class FormUpdateComponent implements OnInit {
               price:this.product.price,
               description:this.product.description,
               image:this.product.image,
-              productCategory:this.product.productCategory.id
+              productCategory:product.categoryId
             })
           });
 
@@ -61,7 +61,7 @@ export class FormUpdateComponent implements OnInit {
 
 updateProduct(){
   this.product = this.contactForm.value;
-  this.product.productCategory={id:this.contactForm.value.productCategory};
+  this.product.categoryId=this.contactForm.value.productCategory;
 
   console.log(this.product)
     this.productService.updateProduct(this.product).subscribe(()=>{
@@ -81,7 +81,7 @@ updateProduct(){
       price:['',[Validators.required]],
       image:['',[Validators.required]],
       description:['',[Validators.required,Validators.minLength(3)]],
-      productCategory: ['']
+      category: ['']
 
     })
 }

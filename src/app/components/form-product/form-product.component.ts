@@ -1,4 +1,5 @@
 
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -44,9 +45,15 @@ categories:Category[]=[];
       this.product.productCategory={id:this.contactForm.value.productCategory};
 
       console.log(this.product);
-            this.productService.createProduct(this.product).subscribe();
-            Swal.fire("Product created",`Product with name ${this.product.name } `)
+      this.productService.createProduct(this.product).subscribe(
+      ()=>{
+          if(HttpStatusCode.Accepted){
+            Swal.fire("Product Created Successfully",`Product with name ${this.product.name } `,"success")
             this.route.navigate(['/app-products'])
+          }
+        }
+      );
+
 
   }
 

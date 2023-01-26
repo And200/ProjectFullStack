@@ -61,8 +61,7 @@ export class FormUpdateComponent implements OnInit {
 
 updateProduct(){
   this.product = this.contactForm.value;
-  this.product.categoryId=this.contactForm.value.productCategory;
-
+  this.product.categoryId=this.contactForm.value.category;
   console.log(this.product)
     this.productService.updateProduct(this.product).subscribe(()=>{
       Swal.fire("Product updated successfully","","success")
@@ -81,7 +80,7 @@ updateProduct(){
       price:['',[Validators.required]],
       image:['',[Validators.required]],
       description:['',[Validators.required,Validators.minLength(3)]],
-      category: ['']
+      category: ['',[Validators.required]]
 
     })
 }

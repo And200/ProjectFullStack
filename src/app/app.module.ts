@@ -28,11 +28,13 @@ import { ProductServicesService } from './services/product-services.service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { FileComponent } from './components/file/file.component';
 @NgModule({
   declarations: [
 
     AppComponent,
     NotFoundComponent,
+    FileComponent,
   ],
   imports: [
     BrowserModule,

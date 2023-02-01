@@ -1,0 +1,12 @@
+<div class="container w-50 mx-auto pt-5">
+  <div class="mb-5">
+    <label for="image" class="form-label">Image</label>
+    <input type="file" id="image" name="image" accept="image/*"
+    (change)="upload($event)"
+    class="form-control">
+  </div>
+
+  <div *ngIf="url">
+      <img src="{{url}}" alt="" class="img-fluid img-thumbnail">
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CustomPreloadService } from './services/custom-preload.service';
 import{QuicklinkStrategy} from 'ngx-quicklink'
+import { FileComponent } from './components/file/file.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,9 @@ const routes: Routes = [
     path:'app-product-detail/:id',component:ProductDetailComponent,data:{
       preload:true
     }
+  },
+  {
+    path:'app-file',component:FileComponent
   },
 
   {

@@ -33,11 +33,18 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">image</label>
+
       <div class="control">
-        <input #inputImage name="image" id="image" formControlName="image" class="input" type="text" placeholder="Text input" />
-        <div *ngIf="contactForm.get('image')?.touched && contactForm.get('image')?.errors?.['required'] "  class="alert alert-danger"> Required Field</div>
+        <div class="mb-5">
+          <label for="image" class="form-label">Image</label>
+          <input formControlName="image" type="file" id="image" name="image" accept="image/*"
+  (change)="upload($event)"
+          class="form-control">
+        </div>
+
       </div>
+
+
     </div>
     <div class="field">
       <label class="label">description</label>
